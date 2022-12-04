@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Portrait</string>
+    <string name="i_am_a_recruiter">I AM A RECRUITER!</string>
+    <string name="i_care_deeply_about">I care deeply about:</string>
 </resources>
