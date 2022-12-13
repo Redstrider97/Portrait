@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
     public SliderAdapter sliderAdapter;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
