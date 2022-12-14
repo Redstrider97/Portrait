@@ -20,10 +20,7 @@ import org.w3c.dom.Text;
 
 public class SliderAdapter extends PagerAdapter {
 
-
-    //Instantiate the two candidates
-    Candidate c1 = (Candidate) new Candidate();
-    Candidate c2 = (Candidate) new Candidate();
+    // Manually add info about two Candidates
 
     Context context;
     LayoutInflater layoutInflater;
