@@ -180,7 +180,6 @@ public class SliderAdapter extends PagerAdapter {
                 checkbox3.setVisibility(View.GONE);
                 checkbox4.setVisibility(View.GONE);
 
-
 //                slideImageView.setImageResource();
 //                slideHeading.setText();
 //                slideDescription.setText();
