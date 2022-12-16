@@ -26,7 +26,8 @@ public class SliderAdapter extends PagerAdapter {
     LayoutInflater layoutInflater;
 
     // retrieve Candidate info
-    Candidate [] candidates = MainActivity.candidates;
+//    Candidate [] candidates = MainActivity.candidates;
+//    String [] names = MainActivity.names;
 
     public SliderAdapter(Context context){
         this.context = context;
@@ -41,21 +42,23 @@ public class SliderAdapter extends PagerAdapter {
             "YOU ARE A HUMAN."
     };
 
-    public int[] slide_images = {
+    public static int[] slide_images = {
             R.drawable.shohan,
-            R.drawable.man,
-            R.drawable.woman_blue,
-            R.drawable.woman_red
+            R.drawable.recruiter,
+            R.drawable.researcher,
+            R.drawable.human
     };
 
-    public int [][] pictures = {
-            { R.drawable.shohan, R.drawable.shohan_professional, R.drawable.shohan_nerd, R.drawable.shohan_human},
-            { R.drawable.julius_professional, R.drawable.julius_professional, R.drawable.julius_nerd, R.drawable.julius_human }
-    };
+//    public int [][] pictures = {
+//            { R.drawable.shohan, R.drawable.shohan_professional, R.drawable.shohan_nerd, R.drawable.shohan_human},
+//            { R.drawable.julius_professional, R.drawable.julius_professional, R.drawable.julius_nerd, R.drawable.julius_human }
+//    };
+
+//    public static int [][] pictures = MainActivity.pictures;
 
     public String[] slide_descs = {
             "Swipe left until you find a label that best describes you.",
-            "You are primarily interested in his:",
+            "You are ONLY interested in his:",
             "You want to learn more about his:",
             "You are curious about:"
     };
@@ -88,15 +91,114 @@ public class SliderAdapter extends PagerAdapter {
             "LOOK WITHIN"
     };
 
-    public String[] professional_headings = {
-            "SHOHAN M. RAHMAN",
-            "JULIUS BRIAN HALDER"
-    };
 
     public String[] professional_descriptions = {
             "Machine Learning Engineer, Software Engineer.",
             "Game Developer, Software Engineer."
     };
+
+
+
+    // Object oriented programming attempt unsuccessful. Proceeding with static attribute retrieval.
+    public int [][] pictures = {
+            { R.drawable.shohan, R.drawable.shohan_professional, R.drawable.shohan_nerd, R.drawable.shohan_human},
+            { R.drawable.julius_professional, R.drawable.julius_professional, R.drawable.julius_nerd, R.drawable.julius_human }
+    };
+
+    public String[] names = {
+            "SHOHAN M. RAHMAN",
+            "JULIUS BRIAN HALDER"
+    };
+
+    public String[] titles = {
+            "Machine Learning Engineer, Software Developer, Composer",
+            "Game Developer, Unit Tester"
+    };
+
+    public String[][][] candidate_info = {
+            //Professional Info
+            {
+                    {
+                            "ML Engineer, Alter Sense Ltd. (internship, Summer 2022)",
+                            "BSc in CSE (Minor in AI), Independent University Bangladesh (Class of 2022)",
+                            "Skills: Python Programming, Computer Vision Tools",
+                            "Interests: Data-Driven innovations",
+                    },
+                    {
+                            "Game Developer, Red Thorn Interactive",
+                            "BSc in CSE, Independent University Bangladesh",
+                            "Julius Skills:",
+                            "Julius Interests:"
+                    }
+            },
+            //Academic Info
+            {
+                    {
+                            "Internship report:'Using Computer Vision to enhance Object Detection in Industrial Environments' ",
+                            "Shohan Current Research Area",
+                            "Shohan Future Academic Research",
+                            "Shohan Long term research plans"
+                    },
+                    {
+                            "Julius Past Literature",
+                            "Julius Current Academic Endeavors",
+                            "Julius Future Academic Endeavors",
+                            "Julius long term academic plans"
+                    }
+            },
+            // Human info
+            {
+                    {   "Article: 'The hunt for interdisciplinary knowledge' (tags: philosophy)",
+                            "Article: 'Using AI to bring the gap between man and god' (tags: philosophy)",
+                            "Article: 'Majhpoth - just another prog rock band'",
+                            "Article: 'Should musical bands be treated like tangible products or journal entries?' "},
+                    {   "Julius human info 1",
+                            "Julius human info 2",
+                            "Julius human info 3",
+                            "Julius human info 4"}
+            }
+    };
+    public String[][] professional_infos = {
+            {
+                    "ML Engineer, Alter Sense Ltd. (internship, Summer 2022)",
+                    "BSc in CSE (Minor in AI), Independent University Bangladesh (Class of 2022)",
+                    "Skills: Python Programming, Computer Vision Tools",
+                    "Interests: Data-Driven innovations",
+            },
+            {
+                    "Game Developer, Red Thorn Interactive",
+                    "BSc in CSE, Independent University Bangladesh",
+                    "Julius Skills:",
+                    "Julius Interests:"
+            }
+    };
+
+    String[][] nerd_infos = {
+            {
+                    "Internship report:'Using Computer Vision to enhance Object Detection in Industrial Environments' ",
+                    "Shohan Current Research Area",
+                    "Shohan Future Academic Research",
+                    "Shohan Long term research plans"
+            },
+            {
+                    "Julius Past Literature",
+                    "Julius Current Academic Endeavors",
+                    "Julius Future Academic Endeavors",
+                    "Julius long term academic plans"
+            }
+    };
+
+    String [][] human_infos = {
+            {   "Article: 'The hunt for interdisciplinary knowledge' (tags: philosophy)",
+                    "Article: 'Using AI to bring the gap between man and god' (tags: philosophy)",
+                    "Article: 'Majhpoth - just another prog rock band'",
+                    "Article: 'Should musical bands be treated like tangible products or journal entries?' "},
+            {   "Julius human info 1",
+                    "Julius human info 2",
+                    "Julius human info 3",
+                    "Julius human info 4"}
+    };
+
 
     @Override
     public int getCount() {
@@ -112,6 +214,10 @@ public class SliderAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         int candindex = MainActivity.candindex;
 
+//        getCandidateInfo();
+
+        System.out.println("Hello, World!");
+
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
 
@@ -124,6 +230,11 @@ public class SliderAdapter extends PagerAdapter {
         CheckBox checkbox2 = (CheckBox) view.findViewById(R.id.checkBox2);
         CheckBox checkbox3 = (CheckBox) view.findViewById(R.id.checkBox3);
         CheckBox checkbox4 = (CheckBox) view.findViewById(R.id.checkBox4);
+
+        TextView info1 = (TextView) view.findViewById(R.id.info1);
+        TextView info2 = (TextView) view.findViewById(R.id.info2);
+        TextView info3 = (TextView) view.findViewById(R.id.info3);
+        TextView info4 = (TextView) view.findViewById(R.id.info4);
 
 
         if(position==0){
@@ -181,15 +292,24 @@ public class SliderAdapter extends PagerAdapter {
         apply_filters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Prepare view for candidate summary display
                 apply_filters.setVisibility(View.GONE);
                 checkbox.setVisibility(View.GONE);
                 checkbox2.setVisibility(View.GONE);
                 checkbox3.setVisibility(View.GONE);
                 checkbox4.setVisibility(View.GONE);
 
+                // Show Thumbnail and titles
                 slideImageView.setImageResource(pictures[candindex][position]);
-//                slideHeading.setText();
-//                slideDescription.setText();
+                slideHeading.setText(names[candindex]);
+                slideDescription.setText(titles[candindex]);
+
+                // Show Bullet points
+                info1.setText(candidate_info[position-1][candindex][0]);
+                info2.setText(candidate_info[position-1][candindex][1]);
+                info3.setText(candidate_info[position-1][candindex][2]);
+                info4.setText(candidate_info[position-1][candindex][3]);
 
 //                slideImageView.setImageResource(MainActivity.pictures[MainActivity.candindex][position]);
 

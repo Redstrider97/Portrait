@@ -32,35 +32,46 @@ public class MainActivity extends AppCompatActivity {
         candindex = 1;
 
         // Manually populate static database (will be automated later)
-        String[] names = new String[2];
-        names[0] = "Shohan Mozid Rahman";
-        names[1] = "Julius Brian Halder";
+        String[] names = {
+                "Shohan Mozid Rahman",
+                "Julius Brian Halder"
+        };
 
-        String[] titles = new String [2];
-        titles[0] = "Machine Learning Engineer, Software Developer, Composer";
-        titles[1] = "Game Developer, Unit Tester";
+        String[] titles = {
+                "Machine Learning Engineer, Software Developer, Composer",
+                "Game Developer, Unit Tester"
+        };
 
-        String[][] professional_infos = new String[2][4];
-        professional_infos[0][0] = "ML Engineer, Alter Sense Ltd. (internship, Summer 2022)";
-        professional_infos[0][1] = "BSc in CSE (Minor in AI), Independent University Bangladesh (Class of 2022)";
-        professional_infos[0][2] = "Skills: Python Programming, Computer Vision Tools";
-        professional_infos[0][3] = "Interests: Data-Driven innovations";
+        String[][] professional_infos = {
+                {
+                    "ML Engineer, Alter Sense Ltd. (internship, Summer 2022)",
+                    "BSc in CSE (Minor in AI), Independent University Bangladesh (Class of 2022)",
+                    "Skills: Python Programming, Computer Vision Tools",
+                    "Interests: Data-Driven innovations",
+                },
+                {
+                    "Game Developer, Red Thorn Interactive",
+                    "BSc in CSE, Independent University Bangladesh",
+                    "Julius Skills:",
+                    "Julius Interests:"
+                }
+        };
 
-        professional_infos[1][0] = "Game Developer, Red Thorn Interactive";
-        professional_infos[1][1] = "BSc in CSE, Independent University Bangladesh";
-        professional_infos[1][2] = "Julius Skills:";
-        professional_infos[1][3] = "Julius Interests:";
+        String[][] nerd_infos = {
+                {
+                        "Internship report:'Using Computer Vision to enhance Object Detection in Industrial Environments' ",
+                        "Shohan Current Research Area",
+                        "Shohan Future Academic Research",
+                        "Shohan Long term research plans"
+                },
+                {
+                        "Julius Past Literature",
+                        "Julius Current Academic Endeavors",
+                        "Julius Future Academic Endeavors",
+                        "Julius long term academic plans"
+                }
+        };
 
-        String[][] nerd_infos = new String[2][4];
-        nerd_infos[0][0] = "Internship report:'Using Computer Vision to enhance Object Detection in Industrial Environments' ";
-        nerd_infos[0][1] = "Shohan Current Research Area";
-        nerd_infos[0][2] = "Shohan Future Academic Research";
-        nerd_infos[0][3] = "Shohan Long term research plans";
-
-        nerd_infos[1][0] = "Julius Past Literature";
-        nerd_infos[1][1] = "Julius Current Academic Endeavors";
-        nerd_infos[1][2] = "Julius Future Academic Endeavors";
-        nerd_infos[1][3] = "Julius long term academic plans";
 
 //        String[][] human_infos = new String[2][4];
         String [][] human_infos = {
@@ -74,10 +85,18 @@ public class MainActivity extends AppCompatActivity {
                     "Julius human info 4"}
         };
 
-        int [][] pictures = {
-                { R.drawable.shohan, R.drawable.shohan_professional, R.drawable.shohan_nerd, R.drawable.shohan_human},
-                { R.drawable.julius_professional, R.drawable.julius_professional, R.drawable.julius_nerd, R.drawable.julius_human }
-        };
+        int [][] pictures = new int[2][4];
+        for (int i =0; i<2; i++) {
+            for (int j=0; j<4; j++){
+                pictures[i][j] = R.drawable.julius_professional;
+            }
+        }
+
+
+
+//                { R.drawable.shohan, R.drawable.shohan_professional, R.drawable.shohan_nerd, R.drawable.shohan_human},
+//                { R.drawable.julius_professional, R.drawable.julius_professional, R.drawable.julius_nerd, R.drawable.julius_human }
+//        };
 
         candcount = 2;
 
