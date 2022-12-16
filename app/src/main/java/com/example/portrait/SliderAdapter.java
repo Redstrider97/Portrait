@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.QuickContactBadge;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,7 +58,7 @@ public class SliderAdapter extends PagerAdapter {
 //    public static int [][] pictures = MainActivity.pictures;
 
     public String[] slide_descs = {
-            "Swipe left until you find a label that best describes you.",
+            "Swipe left until you find a label that best describes you.\n\n or click the picture to toggle between Candidates.",
             "You are ONLY interested in his:",
             "You want to learn more about his:",
             "You are curious about:"
@@ -257,6 +258,22 @@ public class SliderAdapter extends PagerAdapter {
             checkbox4.setVisibility(View.GONE);
 
             apply_filters.setVisibility(View.GONE);
+
+            slideImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //only handle two candidates for now
+
+                    if(MainActivity.candindex==0) {
+                        slideImageView.setImageResource(R.drawable.julius_professional);
+                        MainActivity.candindex++;
+                    } else{
+                        slideImageView.setImageResource(R.drawable.shohan_professional);
+                        MainActivity.candindex--;
+                    }
+
+                }
+            });
         }
 
         slideImageView.setImageResource(slide_images[position]);
@@ -317,6 +334,7 @@ public class SliderAdapter extends PagerAdapter {
 //                slideDescription.setText(MainActivity.titles[MainActivity.candindex]);
             }
         });
+
 
         container.addView(view);
 

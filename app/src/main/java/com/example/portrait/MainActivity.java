@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // By default, program will start showing candidate#(candindex)
-        candindex = 1;
+        candindex = 0;
 
         // Manually populate static database (will be automated later)
         String[] names = {
