@@ -21,15 +21,17 @@ public class MainActivity extends AppCompatActivity {
     public static int [][] pictures, professional_infos, nerd_infos, human_infos;
 
     public static int candindex;
+    public static int candcount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        candindex = 0;
+        // By default, program will start showing candidate#(candindex)
+        candindex = 1;
 
-        // Manually populate static database
+        // Manually populate static database (will be automated later)
         String[] names = new String[2];
         names[0] = "Shohan Mozid Rahman";
         names[1] = "Julius Brian Halder";
@@ -60,32 +62,29 @@ public class MainActivity extends AppCompatActivity {
         nerd_infos[1][2] = "Julius Future Academic Endeavors";
         nerd_infos[1][3] = "Julius long term academic plans";
 
-        String[][] human_infos = new String[2][4];
-        human_infos[0][0] = "Article: 'The hunt for interdisciplinary knowledge' (tags: philosophy)";
-        human_infos[0][1] = "Article: 'Using AI to bring the gap between man and god' (tags: philosophy)";
-        human_infos[0][2] = "Article: 'Majhpoth - just another prog rock band'";
-        human_infos[0][3] = "Article: 'Should musical bands be treated like tangible products or journal entries?' ";
+//        String[][] human_infos = new String[2][4];
+        String [][] human_infos = {
+                {   "Article: 'The hunt for interdisciplinary knowledge' (tags: philosophy)",
+                    "Article: 'Using AI to bring the gap between man and god' (tags: philosophy)",
+                    "Article: 'Majhpoth - just another prog rock band'",
+                    "Article: 'Should musical bands be treated like tangible products or journal entries?' "},
+                {   "Julius human info 1",
+                    "Julius human info 2",
+                    "Julius human info 3",
+                    "Julius human info 4"}
+        };
 
-        human_infos[1][0] = "Julius human info 1";
-        human_infos[1][1] = "Julius human info 2";
-        human_infos[1][2] = "Julius human info 3";
-        human_infos[1][3] = "Julius human info 4";
+        int [][] pictures = {
+                { R.drawable.shohan, R.drawable.shohan_professional, R.drawable.shohan_nerd, R.drawable.shohan_human},
+                { R.drawable.julius_professional, R.drawable.julius_professional, R.drawable.julius_nerd, R.drawable.julius_human }
+        };
 
-        int [][] pictures = new int [2][4];
-        pictures[0][0] = R.drawable.shohan;
-        pictures[0][1] = R.drawable.shohan_professional;
-        pictures[0][2] = R.drawable.shohan_human;
-        pictures[0][3] = R.drawable.shohan_nerd;
-
-        pictures[1][0] = R.drawable.julius_professional;
-        pictures[1][1] = R.drawable.julius_professional;
-        pictures[1][2] = R.drawable.julius_nerd;
-        pictures[1][3] = R.drawable.julius_human;
+        candcount = 2;
 
 
 
-        //Instantiate the two candidates
-        for (int i = 0; i < 2; i++) {
+        // Now that the database tables are populated, instantiate the candidates.
+        for (int i = 0; i < candcount; i++) {
             candidates[i] = new Candidate(names[i], titles[i], professional_infos[i], nerd_infos[i], human_infos[i]);
         }
 

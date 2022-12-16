@@ -18,6 +18,36 @@ public class Candidate {
         this.professional_info = new_professional_info;
     }
 
+    public Candidate(    ){
+        this.name = "";
+        this.title = "";
+
+        this.human_info = new String[]{
+                "",
+                "",
+                "",
+                ""
+        };
+        this.nerd_info = new String[]{
+                "",
+                "",
+                "",
+                ""
+        };
+        this.human_info = new String[]{
+                "",
+                "",
+                "",
+                ""
+        };
+        this.professional_info = new String[]{
+                "",
+                "",
+                "",
+                ""
+        };
+    }
+
     public String name;
     public String title;
     public String [] professional_info ={

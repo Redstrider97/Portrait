@@ -25,6 +25,9 @@ public class SliderAdapter extends PagerAdapter {
     Context context;
     LayoutInflater layoutInflater;
 
+    // retrieve Candidate info
+    Candidate [] candidates = MainActivity.candidates;
+
     public SliderAdapter(Context context){
         this.context = context;
     }
@@ -43,6 +46,11 @@ public class SliderAdapter extends PagerAdapter {
             R.drawable.man,
             R.drawable.woman_blue,
             R.drawable.woman_red
+    };
+
+    public int [][] pictures = {
+            { R.drawable.shohan, R.drawable.shohan_professional, R.drawable.shohan_nerd, R.drawable.shohan_human},
+            { R.drawable.julius_professional, R.drawable.julius_professional, R.drawable.julius_nerd, R.drawable.julius_human }
     };
 
     public String[] slide_descs = {
@@ -102,6 +110,8 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
+        int candindex = MainActivity.candindex;
+
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
 
@@ -177,13 +187,13 @@ public class SliderAdapter extends PagerAdapter {
                 checkbox3.setVisibility(View.GONE);
                 checkbox4.setVisibility(View.GONE);
 
-//                slideImageView.setImageResource();
+                slideImageView.setImageResource(pictures[candindex][position]);
 //                slideHeading.setText();
 //                slideDescription.setText();
 
 //                slideImageView.setImageResource(MainActivity.pictures[MainActivity.candindex][position]);
 
-                slideHeading.setText(MainActivity.names[MainActivity.candindex]);
+//                slideHeading.setText(MainActivity.names[MainActivity.candindex]);
 //                slideDescription.setText(MainActivity.titles[MainActivity.candindex]);
             }
         });
